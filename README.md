@@ -1,4 +1,5 @@
 # Building-Applications-With-Microservices-and-Docker-Using-JHipster
+![Webinar Banner](banner.jpeg)
 Microservices are the next biggest evolution in building scalable, reliable, loosely coupled enterprise application systems.
 Their rise has been fueled in recent times, with the growth in adoption of Cloud and DevOps initiatives.
 
@@ -8,7 +9,7 @@ This Webinar is designed to teach you the importance of using JHipster for creat
 
 Who should attend? Developers and architects who are interested in learning about Microservices.
 
-AGENDA:
+# AGENDA:
 
 10 min – Intro speech by Nifemi Oluboyede
 
