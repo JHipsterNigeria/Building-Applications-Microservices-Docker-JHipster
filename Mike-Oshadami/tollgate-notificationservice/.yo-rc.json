@@ -1,0 +1,42 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.jhispter.nigeria",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.9.0",
+    "applicationType": "microservice",
+    "baseName": "TollGateNotificationService",
+    "packageName": "com.jhispter.nigeria",
+    "packageFolder": "com/jhispter/nigeria",
+    "serverPort": "8081",
+    "authenticationType": "uaa",
+    "uaaBaseName": "tollgateuaaserver",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MGUxMzU4ZGRlNGQxMjU0MTkyNmFlNjhjZDVlMTA0MWEwNmYxZWNkMWI4ZTE3N2M4OTQ0OTMyMGZlOGRiNmY4YzRlNzFmZDQ5OTE3ZDNiNThkMDUwNWE5OGVlODdlZTAzMDgwZTY0YTFkODA3ZTIwNTI2Y2I4M2JmY2QzMzk3NDY=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1601038870767,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "en",
+    "languages": ["en"],
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
