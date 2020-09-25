@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.jhipster.nigeria",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.10.1",
+    "applicationType": "uaa",
+    "baseName": "tollgateuaaserver",
+    "packageName": "com.jhipster.nigeria",
+    "packageFolder": "com/jhipster/nigeria",
+    "serverPort": "9999",
+    "authenticationType": "uaa",
+    "cacheProvider": "redis",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MDVhNTU3ZjVmZTZmZThkZGRkZWViNmM1YTc2MWM4Nzc5ZTMwODc5NTFkOTAzMmExZDg1NDZmNTNhYzVjMGIzNTg2MDQ1NGRmNDhmNDcwNThjOTM4MTM2YjQyZjkyMmE0ZTVkODE2NmJmODc1ZGVjMTM3ZGY5OTFiZTYyY2QwZWE=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1601058098458,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "en",
+    "languages": ["en"],
+    "blueprints": [],
+    "skipClient": true
+  }
+}
