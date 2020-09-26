@@ -7,7 +7,7 @@ Companies like Netflix, Amazon, SystemSpecs and others have started to benefit f
 
 This Webinar is designed to teach you the importance of using JHipster for creating your microservices application.
 
-Who should attend? Developers and architects who are interested in learning about Microservices.
+Who should attend? Developers, Engineers and architects who are interested in learning about Microservices.
 
 # AGENDA:
 
