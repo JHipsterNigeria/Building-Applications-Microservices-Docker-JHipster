@@ -1,0 +1,36 @@
+{
+  "name": "Vehicle",
+  "fields": [
+    {
+      "fieldName": "vin",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "VehicleType",
+      "fieldValues": "SALOON,SUV,MINIVAN,HEAVY_TRUCKS,LIGHT_TRUCKS,OTHER"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "profile",
+      "otherEntityRelationshipName": "vehicle",
+      "relationshipName": "owner",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200926133024",
+  "entityTableName": "vehicle",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "coreservice",
+  "applications": "*",
+  "microserviceName": "coreservice"
+}

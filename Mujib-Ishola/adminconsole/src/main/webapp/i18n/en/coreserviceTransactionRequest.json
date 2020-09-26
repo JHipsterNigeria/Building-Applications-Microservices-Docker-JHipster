@@ -1,0 +1,48 @@
+{
+  "adminconsoleApp": {
+    "coreserviceTransactionRequest": {
+      "home": {
+        "title": "Transaction Requests",
+        "createLabel": "Create a new Transaction Request",
+        "createOrEditLabel": "Create or edit a Transaction Request",
+        "notFound": "No Transaction Requests found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Transaction Request {{ id }}?"
+      },
+      "detail": {
+        "title": "Transaction Request"
+      },
+      "amount": "Amount",
+      "channel": "Channel",
+      "currency": "Currency",
+      "sourceAccount": "Source Account",
+      "sourceAccountBankCode": "Source Account Bank Code",
+      "sourceAccountName": "Source Account Name",
+      "sourceNarration": "Source Narration",
+      "destinationAccount": "Destination Account",
+      "destinationAccountBankCode": "Destination Account Bank Code",
+      "destinationAccountName": "Destination Account Name",
+      "destinationNarration": "Destination Narration",
+      "statusWebHook": "Status Web Hook",
+      "transactionRef": "Transaction Ref",
+      "responseCode": "Response Code",
+      "responseMessage": "Response Message",
+      "transactionType": "Transaction Type",
+      "schemeOwnerId": "Scheme Owner Id",
+      "account": "Account",
+      "help": {
+        "statusWebHook": "The rest API endpoint so send notification of transactions to.See web hook for details",
+        "transactionRef": "Uniquely identifies a transaction",
+        "schemeOwnerId": "Possibly to be used as a descriminator in a multi tenant situation"
+      }
+    }
+  },
+  "coreserviceApp": {
+    "coreserviceTransactionRequest": {
+      "created": "A new Transaction Request is created with identifier {{ param }}",
+      "updated": "A Transaction Request is updated with identifier {{ param }}",
+      "deleted": "A Transaction Request is deleted with identifier {{ param }}"
+    }
+  }
+}

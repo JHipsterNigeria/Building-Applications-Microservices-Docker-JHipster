@@ -1,0 +1,36 @@
+{
+  "adminconsoleApp": {
+    "coreserviceVirtualAccount": {
+      "home": {
+        "title": "Virtual Accounts",
+        "createLabel": "Create a new Virtual Account",
+        "createOrEditLabel": "Create or edit a Virtual Account",
+        "notFound": "No Virtual Accounts found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Virtual Account {{ id }}?"
+      },
+      "detail": {
+        "title": "Virtual Account"
+      },
+      "customerId": "Customer Id",
+      "extCustomerId": "Ext Customer Id",
+      "currency": "Currency",
+      "accountNumber": "Account Number",
+      "availableBalance": "Available Balance",
+      "holdBalance": "Hold Balance",
+      "minimumBalance": "Minimum Balance",
+      "accountType": "Account Type",
+      "status": "Status",
+      "accountHolder": "Account Holder",
+      "transactionRequest": "Transaction Request"
+    }
+  },
+  "coreserviceApp": {
+    "coreserviceVirtualAccount": {
+      "created": "A new Virtual Account is created with identifier {{ param }}",
+      "updated": "A Virtual Account is updated with identifier {{ param }}",
+      "deleted": "A Virtual Account is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,139 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-virtual-account-heading" jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.home.createOrEditLabel">Create or edit a Virtual Account</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.customerId" for="field_customerId">Customer Id</label>
+                    <input type="text" class="form-control" name="customerId" id="field_customerId"
+                           formControlName="customerId"/>
+                    <div *ngIf="editForm.get('customerId')!.invalid && (editForm.get('customerId')!.dirty || editForm.get('customerId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('customerId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.extCustomerId" for="field_extCustomerId">Ext Customer Id</label>
+                    <input type="text" class="form-control" name="extCustomerId" id="field_extCustomerId"
+                           formControlName="extCustomerId"/>
+                    <div *ngIf="editForm.get('extCustomerId')!.invalid && (editForm.get('extCustomerId')!.dirty || editForm.get('extCustomerId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('extCustomerId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.currency" for="field_currency">Currency</label>
+                    <input type="text" class="form-control" name="currency" id="field_currency"
+                           formControlName="currency"/>
+                    <div *ngIf="editForm.get('currency')!.invalid && (editForm.get('currency')!.dirty || editForm.get('currency')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('currency')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.accountNumber" for="field_accountNumber">Account Number</label>
+                    <input type="text" class="form-control" name="accountNumber" id="field_accountNumber"
+                           formControlName="accountNumber"/>
+                    <div *ngIf="editForm.get('accountNumber')!.invalid && (editForm.get('accountNumber')!.dirty || editForm.get('accountNumber')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('accountNumber')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.availableBalance" for="field_availableBalance">Available Balance</label>
+                    <input type="number" class="form-control" name="availableBalance" id="field_availableBalance"
+                           formControlName="availableBalance"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.holdBalance" for="field_holdBalance">Hold Balance</label>
+                    <input type="number" class="form-control" name="holdBalance" id="field_holdBalance"
+                           formControlName="holdBalance"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.minimumBalance" for="field_minimumBalance">Minimum Balance</label>
+                    <input type="number" class="form-control" name="minimumBalance" id="field_minimumBalance"
+                           formControlName="minimumBalance"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.accountType" for="field_accountType">Account Type</label>
+                    <select class="form-control" name="accountType" formControlName="accountType" id="field_accountType">
+                        <option value="PERSONAL">{{ 'adminconsoleApp.ProfileType.PERSONAL' | translate }}</option>
+                        <option value="BUSINESS">{{ 'adminconsoleApp.ProfileType.BUSINESS' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('accountType')!.invalid && (editForm.get('accountType')!.dirty || editForm.get('accountType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('accountType')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" formControlName="status" id="field_status">
+                        <option value="NEW">{{ 'adminconsoleApp.AccountStatus.NEW' | translate }}</option>
+                        <option value="ACTIVE">{{ 'adminconsoleApp.AccountStatus.ACTIVE' | translate }}</option>
+                        <option value="INACTIVE">{{ 'adminconsoleApp.AccountStatus.INACTIVE' | translate }}</option>
+                        <option value="BLOCKED">{{ 'adminconsoleApp.AccountStatus.BLOCKED' | translate }}</option>
+                        <option value="CLOSED">{{ 'adminconsoleApp.AccountStatus.CLOSED' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('status')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.accountHolder" for="field_accountHolder">Account Holder</label>
+                    <select class="form-control" id="field_accountHolder" name="accountHolder" formControlName="accountHolderId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="profileOption.id" *ngFor="let profileOption of profiles; trackBy: trackById">{{ profileOption.email }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.transactionRequest" for="field_transactionRequest">Transaction Request</label>
+                    <select class="form-control" id="field_transactionRequest" name="transactionRequest" formControlName="transactionRequestId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="transactionRequestOption.id" *ngFor="let transactionRequestOption of transactionrequests; trackBy: trackById">{{ transactionRequestOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

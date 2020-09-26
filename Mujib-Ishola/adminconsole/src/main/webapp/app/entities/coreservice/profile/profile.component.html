@@ -1,0 +1,102 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="adminconsoleApp.coreserviceProfile.home.title">Profiles</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-profile" [routerLink]="['/profile/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="adminconsoleApp.coreserviceProfile.home.createLabel">
+            Create a new Profile
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="profiles?.length === 0">
+        <span jhiTranslate="adminconsoleApp.coreserviceProfile.home.notFound">No profiles found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="profiles && profiles.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userId"><span jhiTranslate="adminconsoleApp.coreserviceProfile.userId">User Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="login"><span jhiTranslate="adminconsoleApp.coreserviceProfile.login">Login</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="phone"><span jhiTranslate="adminconsoleApp.coreserviceProfile.phone">Phone</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="email"><span jhiTranslate="adminconsoleApp.coreserviceProfile.email">Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="firstName"><span jhiTranslate="adminconsoleApp.coreserviceProfile.firstName">First Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="middleName"><span jhiTranslate="adminconsoleApp.coreserviceProfile.middleName">Middle Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastName"><span jhiTranslate="adminconsoleApp.coreserviceProfile.lastName">Last Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="optActivationKey"><span jhiTranslate="adminconsoleApp.coreserviceProfile.optActivationKey">Opt Activation Key</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="activationKey"><span jhiTranslate="adminconsoleApp.coreserviceProfile.activationKey">Activation Key</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="alias"><span jhiTranslate="adminconsoleApp.coreserviceProfile.alias">Alias</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="emailNotifications"><span jhiTranslate="adminconsoleApp.coreserviceProfile.emailNotifications">Email Notifications</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="smsNotifications"><span jhiTranslate="adminconsoleApp.coreserviceProfile.smsNotifications">Sms Notifications</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="photo"><span jhiTranslate="adminconsoleApp.coreserviceProfile.photo">Photo</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lang"><span jhiTranslate="adminconsoleApp.coreserviceProfile.lang">Lang</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let profile of profiles ;trackBy: trackId">
+                    <td><a [routerLink]="['/profile', profile.id, 'view']">{{ profile.id }}</a></td>
+                    <td>{{ profile.userId }}</td>
+                    <td>{{ profile.login }}</td>
+                    <td>{{ profile.phone }}</td>
+                    <td>{{ profile.email }}</td>
+                    <td>{{ profile.firstName }}</td>
+                    <td>{{ profile.middleName }}</td>
+                    <td>{{ profile.lastName }}</td>
+                    <td>{{ profile.optActivationKey }}</td>
+                    <td>{{ profile.activationKey }}</td>
+                    <td>{{ profile.alias }}</td>
+                    <td>{{ profile.emailNotifications }}</td>
+                    <td>{{ profile.smsNotifications }}</td>
+                    <td>
+                        <a *ngIf="profile.photo" (click)="openFile(profile.photoContentType, profile.photo)">
+                            <img [src]="'data:' + profile.photoContentType + ';base64,' + profile.photo" style="max-height: 30px;" alt="profile image"/>
+                        </a>
+                        <span *ngIf="profile.photo">{{ profile.photoContentType }}, {{ byteSize(profile.photo) }}</span>
+                    </td>
+                    <td>{{ profile.lang }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/profile', profile.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/profile', profile.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(profile)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="profiles && profiles.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

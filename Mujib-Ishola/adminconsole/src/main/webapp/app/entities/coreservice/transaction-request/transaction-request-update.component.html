@@ -1,0 +1,201 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-transaction-request-heading" jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.home.createOrEditLabel">Create or edit a Transaction Request</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.amount" for="field_amount">Amount</label>
+                    <input type="number" class="form-control" name="amount" id="field_amount"
+                           formControlName="amount"/>
+                    <div *ngIf="editForm.get('amount')!.invalid && (editForm.get('amount')!.dirty || editForm.get('amount')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('amount')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('amount')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.channel" for="field_channel">Channel</label>
+                    <input type="text" class="form-control" name="channel" id="field_channel"
+                           formControlName="channel"/>
+                    <div *ngIf="editForm.get('channel')!.invalid && (editForm.get('channel')!.dirty || editForm.get('channel')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('channel')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.currency" for="field_currency">Currency</label>
+                    <input type="text" class="form-control" name="currency" id="field_currency"
+                           formControlName="currency"/>
+                    <div *ngIf="editForm.get('currency')!.invalid && (editForm.get('currency')!.dirty || editForm.get('currency')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('currency')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.sourceAccount" for="field_sourceAccount">Source Account</label>
+                    <input type="text" class="form-control" name="sourceAccount" id="field_sourceAccount"
+                           formControlName="sourceAccount"/>
+                    <div *ngIf="editForm.get('sourceAccount')!.invalid && (editForm.get('sourceAccount')!.dirty || editForm.get('sourceAccount')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('sourceAccount')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.sourceAccountBankCode" for="field_sourceAccountBankCode">Source Account Bank Code</label>
+                    <input type="text" class="form-control" name="sourceAccountBankCode" id="field_sourceAccountBankCode"
+                           formControlName="sourceAccountBankCode"/>
+                    <div *ngIf="editForm.get('sourceAccountBankCode')!.invalid && (editForm.get('sourceAccountBankCode')!.dirty || editForm.get('sourceAccountBankCode')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('sourceAccountBankCode')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.sourceAccountName" for="field_sourceAccountName">Source Account Name</label>
+                    <input type="text" class="form-control" name="sourceAccountName" id="field_sourceAccountName"
+                           formControlName="sourceAccountName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.sourceNarration" for="field_sourceNarration">Source Narration</label>
+                    <input type="text" class="form-control" name="sourceNarration" id="field_sourceNarration"
+                           formControlName="sourceNarration"/>
+                    <div *ngIf="editForm.get('sourceNarration')!.invalid && (editForm.get('sourceNarration')!.dirty || editForm.get('sourceNarration')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('sourceNarration')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.destinationAccount" for="field_destinationAccount">Destination Account</label>
+                    <input type="text" class="form-control" name="destinationAccount" id="field_destinationAccount"
+                           formControlName="destinationAccount"/>
+                    <div *ngIf="editForm.get('destinationAccount')!.invalid && (editForm.get('destinationAccount')!.dirty || editForm.get('destinationAccount')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('destinationAccount')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.destinationAccountBankCode" for="field_destinationAccountBankCode">Destination Account Bank Code</label>
+                    <input type="text" class="form-control" name="destinationAccountBankCode" id="field_destinationAccountBankCode"
+                           formControlName="destinationAccountBankCode"/>
+                    <div *ngIf="editForm.get('destinationAccountBankCode')!.invalid && (editForm.get('destinationAccountBankCode')!.dirty || editForm.get('destinationAccountBankCode')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('destinationAccountBankCode')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.destinationAccountName" for="field_destinationAccountName">Destination Account Name</label>
+                    <input type="text" class="form-control" name="destinationAccountName" id="field_destinationAccountName"
+                           formControlName="destinationAccountName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.destinationNarration" for="field_destinationNarration">Destination Narration</label>
+                    <input type="text" class="form-control" name="destinationNarration" id="field_destinationNarration"
+                           formControlName="destinationNarration"/>
+                    <div *ngIf="editForm.get('destinationNarration')!.invalid && (editForm.get('destinationNarration')!.dirty || editForm.get('destinationNarration')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('destinationNarration')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.statusWebHook" for="field_statusWebHook" [ngbTooltip]="'adminconsoleApp.coreserviceTransactionRequest.help.statusWebHook' | translate">Status Web Hook</label>
+                    <input type="text" class="form-control" name="statusWebHook" id="field_statusWebHook"
+                           formControlName="statusWebHook"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.transactionRef" for="field_transactionRef" [ngbTooltip]="'adminconsoleApp.coreserviceTransactionRequest.help.transactionRef' | translate">Transaction Ref</label>
+                    <input type="text" class="form-control" name="transactionRef" id="field_transactionRef"
+                           formControlName="transactionRef"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.responseCode" for="field_responseCode">Response Code</label>
+                    <input type="text" class="form-control" name="responseCode" id="field_responseCode"
+                           formControlName="responseCode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.responseMessage" for="field_responseMessage">Response Message</label>
+                    <input type="text" class="form-control" name="responseMessage" id="field_responseMessage"
+                           formControlName="responseMessage"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.transactionType" for="field_transactionType">Transaction Type</label>
+                    <select class="form-control" name="transactionType" formControlName="transactionType" id="field_transactionType">
+                        <option value="WALLET_TOPUP">{{ 'adminconsoleApp.TransactionType.WALLET_TOPUP' | translate }}</option>
+                        <option value="BILLS_PAYMENT">{{ 'adminconsoleApp.TransactionType.BILLS_PAYMENT' | translate }}</option>
+                        <option value="OTHER">{{ 'adminconsoleApp.TransactionType.OTHER' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('transactionType')!.invalid && (editForm.get('transactionType')!.dirty || editForm.get('transactionType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('transactionType')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.schemeOwnerId" for="field_schemeOwnerId" [ngbTooltip]="'adminconsoleApp.coreserviceTransactionRequest.help.schemeOwnerId' | translate">Scheme Owner Id</label>
+                    <input type="text" class="form-control" name="schemeOwnerId" id="field_schemeOwnerId"
+                           formControlName="schemeOwnerId"/>
+                    <div *ngIf="editForm.get('schemeOwnerId')!.invalid && (editForm.get('schemeOwnerId')!.dirty || editForm.get('schemeOwnerId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('schemeOwnerId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

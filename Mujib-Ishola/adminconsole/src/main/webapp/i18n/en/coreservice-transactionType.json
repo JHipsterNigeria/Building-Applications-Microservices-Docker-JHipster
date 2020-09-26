@@ -1,0 +1,10 @@
+{
+  "adminconsoleApp": {
+    "TransactionType": {
+      "null": "",
+      "WALLET_TOPUP": "WALLET_TOPUP",
+      "BILLS_PAYMENT": "BILLS_PAYMENT",
+      "OTHER": "OTHER"
+    }
+  }
+}

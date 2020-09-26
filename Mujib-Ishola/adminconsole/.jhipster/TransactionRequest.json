@@ -1,0 +1,131 @@
+{
+  "name": "TransactionRequest",
+  "fields": [
+    {
+      "fieldName": "amount",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "channel",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "currency",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "sourceAccount",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "sourceAccountBankCode",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "sourceAccountName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sourceNarration",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "destinationAccount",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "destinationAccountBankCode",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "destinationAccountName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "destinationNarration",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "statusWebHook",
+      "fieldType": "String",
+      "javadoc": "The rest API endpoint so send notification of transactions to.See web hook for details"
+    },
+    {
+      "fieldName": "transactionRef",
+      "fieldType": "String",
+      "javadoc": "Uniquely identifies a transaction"
+    },
+    {
+      "fieldName": "responseCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "responseMessage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "transactionType",
+      "fieldType": "TransactionType",
+      "fieldValues": "WALLET_TOPUP,BILLS_PAYMENT,OTHER",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "schemeOwnerId",
+      "fieldType": "String",
+      "javadoc": "Possibly to be used as a descriminator in a multi tenant situation",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "virtualAccount",
+      "otherEntityRelationshipName": "transactionRequest",
+      "relationshipName": "account"
+    }
+  ],
+  "changelogDate": "20200926140922",
+  "javadoc": "Holds the details for every  transaction.",
+  "entityTableName": "transaction_request",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*",
+  "microserviceName": "coreservice"
+}

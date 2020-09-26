@@ -1,0 +1,9 @@
+{
+  "adminconsoleApp": {
+    "ProfileType": {
+      "null": "",
+      "PERSONAL": "PERSONAL",
+      "BUSINESS": "BUSINESS"
+    }
+  }
+}

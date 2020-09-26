@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="virtualAccount">
+            <h2><span jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.detail.title">Virtual Account</span> {{ virtualAccount.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.customerId">Customer Id</span></dt>
+                <dd>
+                    <span>{{ virtualAccount.customerId }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.extCustomerId">Ext Customer Id</span></dt>
+                <dd>
+                    <span>{{ virtualAccount.extCustomerId }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.currency">Currency</span></dt>
+                <dd>
+                    <span>{{ virtualAccount.currency }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.accountNumber">Account Number</span></dt>
+                <dd>
+                    <span>{{ virtualAccount.accountNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.availableBalance">Available Balance</span></dt>
+                <dd>
+                    <span>{{ virtualAccount.availableBalance }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.holdBalance">Hold Balance</span></dt>
+                <dd>
+                    <span>{{ virtualAccount.holdBalance }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.minimumBalance">Minimum Balance</span></dt>
+                <dd>
+                    <span>{{ virtualAccount.minimumBalance }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.accountType">Account Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'adminconsoleApp.ProfileType.' + virtualAccount.accountType }}">{{ virtualAccount.accountType }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'adminconsoleApp.AccountStatus.' + virtualAccount.status }}">{{ virtualAccount.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.accountHolder">Account Holder</span></dt>
+                <dd>
+                    <div *ngIf="virtualAccount.accountHolderId">
+                        <a [routerLink]="['/profile', virtualAccount.accountHolderId, 'view']">{{ virtualAccount.accountHolderEmail }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceVirtualAccount.transactionRequest">Transaction Request</span></dt>
+                <dd>
+                    <div *ngIf="virtualAccount.transactionRequestId">
+                        <a [routerLink]="['/transaction-request', virtualAccount.transactionRequestId, 'view']">{{ virtualAccount.transactionRequestId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/virtual-account', virtualAccount.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="profile">
+            <h2><span jhiTranslate="adminconsoleApp.coreserviceProfile.detail.title">Profile</span> {{ profile.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceProfile.userId">User Id</span></dt>
+                <dd>
+                    <span>{{ profile.userId }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceProfile.login">Login</span></dt>
+                <dd>
+                    <span>{{ profile.login }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceProfile.phone">Phone</span></dt>
+                <dd>
+                    <span>{{ profile.phone }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceProfile.email">Email</span></dt>
+                <dd>
+                    <span>{{ profile.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceProfile.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{ profile.firstName }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceProfile.middleName">Middle Name</span></dt>
+                <dd>
+                    <span>{{ profile.middleName }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceProfile.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{ profile.lastName }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceProfile.optActivationKey">Opt Activation Key</span></dt>
+                <dd>
+                    <span>{{ profile.optActivationKey }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceProfile.activationKey">Activation Key</span></dt>
+                <dd>
+                    <span>{{ profile.activationKey }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceProfile.alias">Alias</span></dt>
+                <dd>
+                    <span>{{ profile.alias }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceProfile.emailNotifications">Email Notifications</span></dt>
+                <dd>
+                    <span>{{ profile.emailNotifications }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceProfile.smsNotifications">Sms Notifications</span></dt>
+                <dd>
+                    <span>{{ profile.smsNotifications }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceProfile.photo">Photo</span></dt>
+                <dd>
+                    <div *ngIf="profile.photo">
+                        <a (click)="openFile(profile.photoContentType, profile.photo)">
+                            <img [src]="'data:' + profile.photoContentType + ';base64,' + profile.photo" style="max-width: 100%;" alt="profile image"/>
+                        </a>
+                        {{ profile.photoContentType }}, {{ byteSize(profile.photo) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceProfile.lang" [ngbTooltip]="'adminconsoleApp.coreserviceProfile.help.lang' | translate">Lang</span></dt>
+                <dd>
+                    <span>{{ profile.lang }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/profile', profile.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

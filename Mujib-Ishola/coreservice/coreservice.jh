@@ -1,0 +1,117 @@
+
+entity Profile {
+    userId Long required,
+    login String required maxlength(100),
+    userId Long required,
+    phone String required minlength(8) maxlength(15),
+    email String,
+    firstName String required,
+    middleName String,
+    lastName String required,
+	optActivationKey String ,
+    activationKey String ,
+    alias String ,
+    emailNotifications Boolean,
+    smsNotifications Boolean,
+    photo ImageBlob,
+    lang String required /**Used for i18n on the platform**/
+}
+
+entity Vehicle {
+  vin String required
+  type VehicleType
+}
+
+enum VehicleType{
+SALOON, SUV, MINIVAN, HEAVY_TRUCKS, LIGHT_TRUCKS, OTHER
+}
+
+/**
+ * Holds the details for every  transaction.
+ */
+entity TransactionRequest {
+  amount BigDecimal required,
+  channel String required,
+  currency String required,
+  sourceAccount String required,
+  sourceAccountBankCode String required,
+  sourceAccountName String,
+  sourceNarration String required,
+  destinationAccount String required,
+  destinationAccountBankCode String required,
+  destinationAccountName String,
+  destinationNarration String required,
+  /**
+   * The rest API endpoint so send notification of transactions to.See web hook for details
+   */
+  statusWebHook String,
+  /**
+   * Uniquely identifies a transaction
+   */
+  transactionRef String,
+  responseCode String,
+  responseMessage String,
+  transactionType TransactionType required,
+  schemeOwnerId String required /** Possibly to be used as a descriminator in a multi tenant situation**/
+}
+
+/**Wallet account information**/
+entity VirtualAccount {
+  customerId String required,
+  extCustomerId String required,
+  currency String required,
+  accountNumber String required,
+  availableBalance BigDecimal,
+  holdBalance BigDecimal,
+  minimumBalance BigDecimal,
+  accountType ProfileType required,
+  status AccountStatus required
+}
+
+
+enum Status {
+  NEW, ACTIVE, INACTIVE
+}
+
+enum TransactionType {
+  WALLET_TOPUP,
+  BILLS_PAYMENT,
+  OTHER
+}
+
+enum ProfileType {
+  PERSONAL,
+  BUSINESS
+}
+
+enum AccountStatus {
+  NEW,
+  ACTIVE,
+  INACTIVE,
+  BLOCKED,
+  CLOSED
+}
+
+
+relationship ManyToOne {
+ Vehicle {owner} to Profile
+ VirtualAccount {accountHolder(email)} to Profile
+}
+
+relationship OneToMany {
+  TransactionRequest{account(accountNumber)} to VirtualAccount
+}
+
+
+// Set pagination options
+paginate * with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
+filter *

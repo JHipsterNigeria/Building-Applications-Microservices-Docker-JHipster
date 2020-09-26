@@ -1,0 +1,90 @@
+{
+  "name": "VirtualAccount",
+  "fields": [
+    {
+      "fieldName": "customerId",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "extCustomerId",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "currency",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "accountNumber",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "availableBalance",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "holdBalance",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "minimumBalance",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "accountType",
+      "fieldType": "ProfileType",
+      "fieldValues": "PERSONAL,BUSINESS",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "AccountStatus",
+      "fieldValues": "NEW,ACTIVE,INACTIVE,BLOCKED,CLOSED",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "profile",
+      "otherEntityRelationshipName": "virtualAccount",
+      "relationshipName": "accountHolder",
+      "otherEntityField": "email"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "transactionRequest",
+      "otherEntityRelationshipName": "account",
+      "relationshipName": "transactionRequest",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200926141022",
+  "javadoc": "Wallet account information",
+  "entityTableName": "virtual_account",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*",
+  "microserviceName": "coreservice"
+}

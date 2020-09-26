@@ -1,0 +1,103 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.home.title">Transaction Requests</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-transaction-request" [routerLink]="['/transaction-request/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.home.createLabel">
+            Create a new Transaction Request
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="transactionRequests?.length === 0">
+        <span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.home.notFound">No transactionRequests found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="transactionRequests && transactionRequests.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="amount"><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.amount">Amount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="channel"><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.channel">Channel</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="currency"><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.currency">Currency</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sourceAccount"><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.sourceAccount">Source Account</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sourceAccountBankCode"><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.sourceAccountBankCode">Source Account Bank Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sourceAccountName"><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.sourceAccountName">Source Account Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sourceNarration"><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.sourceNarration">Source Narration</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="destinationAccount"><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.destinationAccount">Destination Account</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="destinationAccountBankCode"><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.destinationAccountBankCode">Destination Account Bank Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="destinationAccountName"><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.destinationAccountName">Destination Account Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="destinationNarration"><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.destinationNarration">Destination Narration</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="statusWebHook"><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.statusWebHook">Status Web Hook</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="transactionRef"><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.transactionRef">Transaction Ref</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="responseCode"><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.responseCode">Response Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="responseMessage"><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.responseMessage">Response Message</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="transactionType"><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.transactionType">Transaction Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="schemeOwnerId"><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.schemeOwnerId">Scheme Owner Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let transactionRequest of transactionRequests ;trackBy: trackId">
+                    <td><a [routerLink]="['/transaction-request', transactionRequest.id, 'view']">{{ transactionRequest.id }}</a></td>
+                    <td>{{ transactionRequest.amount }}</td>
+                    <td>{{ transactionRequest.channel }}</td>
+                    <td>{{ transactionRequest.currency }}</td>
+                    <td>{{ transactionRequest.sourceAccount }}</td>
+                    <td>{{ transactionRequest.sourceAccountBankCode }}</td>
+                    <td>{{ transactionRequest.sourceAccountName }}</td>
+                    <td>{{ transactionRequest.sourceNarration }}</td>
+                    <td>{{ transactionRequest.destinationAccount }}</td>
+                    <td>{{ transactionRequest.destinationAccountBankCode }}</td>
+                    <td>{{ transactionRequest.destinationAccountName }}</td>
+                    <td>{{ transactionRequest.destinationNarration }}</td>
+                    <td>{{ transactionRequest.statusWebHook }}</td>
+                    <td>{{ transactionRequest.transactionRef }}</td>
+                    <td>{{ transactionRequest.responseCode }}</td>
+                    <td>{{ transactionRequest.responseMessage }}</td>
+                    <td jhiTranslate="{{ 'adminconsoleApp.TransactionType.' + transactionRequest.transactionType }}">{{ transactionRequest.transactionType }}</td>
+                    <td>{{ transactionRequest.schemeOwnerId }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/transaction-request', transactionRequest.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/transaction-request', transactionRequest.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(transactionRequest)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="transactionRequests && transactionRequests.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

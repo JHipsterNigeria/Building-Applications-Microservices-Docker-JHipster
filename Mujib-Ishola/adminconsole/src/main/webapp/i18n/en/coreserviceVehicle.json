@@ -1,0 +1,28 @@
+{
+  "adminconsoleApp": {
+    "coreserviceVehicle": {
+      "home": {
+        "title": "Vehicles",
+        "createLabel": "Create a new Vehicle",
+        "createOrEditLabel": "Create or edit a Vehicle",
+        "notFound": "No Vehicles found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Vehicle {{ id }}?"
+      },
+      "detail": {
+        "title": "Vehicle"
+      },
+      "vin": "Vin",
+      "type": "Type",
+      "owner": "Owner"
+    }
+  },
+  "coreserviceApp": {
+    "coreserviceVehicle": {
+      "created": "A new Vehicle is created with identifier {{ param }}",
+      "updated": "A Vehicle is updated with identifier {{ param }}",
+      "deleted": "A Vehicle is deleted with identifier {{ param }}"
+    }
+  }
+}

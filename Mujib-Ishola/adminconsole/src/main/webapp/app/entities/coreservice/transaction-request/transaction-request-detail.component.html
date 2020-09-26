@@ -1,0 +1,94 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="transactionRequest">
+            <h2><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.detail.title">Transaction Request</span> {{ transactionRequest.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.amount">Amount</span></dt>
+                <dd>
+                    <span>{{ transactionRequest.amount }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.channel">Channel</span></dt>
+                <dd>
+                    <span>{{ transactionRequest.channel }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.currency">Currency</span></dt>
+                <dd>
+                    <span>{{ transactionRequest.currency }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.sourceAccount">Source Account</span></dt>
+                <dd>
+                    <span>{{ transactionRequest.sourceAccount }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.sourceAccountBankCode">Source Account Bank Code</span></dt>
+                <dd>
+                    <span>{{ transactionRequest.sourceAccountBankCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.sourceAccountName">Source Account Name</span></dt>
+                <dd>
+                    <span>{{ transactionRequest.sourceAccountName }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.sourceNarration">Source Narration</span></dt>
+                <dd>
+                    <span>{{ transactionRequest.sourceNarration }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.destinationAccount">Destination Account</span></dt>
+                <dd>
+                    <span>{{ transactionRequest.destinationAccount }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.destinationAccountBankCode">Destination Account Bank Code</span></dt>
+                <dd>
+                    <span>{{ transactionRequest.destinationAccountBankCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.destinationAccountName">Destination Account Name</span></dt>
+                <dd>
+                    <span>{{ transactionRequest.destinationAccountName }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.destinationNarration">Destination Narration</span></dt>
+                <dd>
+                    <span>{{ transactionRequest.destinationNarration }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.statusWebHook" [ngbTooltip]="'adminconsoleApp.coreserviceTransactionRequest.help.statusWebHook' | translate">Status Web Hook</span></dt>
+                <dd>
+                    <span>{{ transactionRequest.statusWebHook }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.transactionRef" [ngbTooltip]="'adminconsoleApp.coreserviceTransactionRequest.help.transactionRef' | translate">Transaction Ref</span></dt>
+                <dd>
+                    <span>{{ transactionRequest.transactionRef }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.responseCode">Response Code</span></dt>
+                <dd>
+                    <span>{{ transactionRequest.responseCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.responseMessage">Response Message</span></dt>
+                <dd>
+                    <span>{{ transactionRequest.responseMessage }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.transactionType">Transaction Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'adminconsoleApp.TransactionType.' + transactionRequest.transactionType }}">{{ transactionRequest.transactionType }}</span>
+                </dd>
+                <dt><span jhiTranslate="adminconsoleApp.coreserviceTransactionRequest.schemeOwnerId" [ngbTooltip]="'adminconsoleApp.coreserviceTransactionRequest.help.schemeOwnerId' | translate">Scheme Owner Id</span></dt>
+                <dd>
+                    <span>{{ transactionRequest.schemeOwnerId }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/transaction-request', transactionRequest.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

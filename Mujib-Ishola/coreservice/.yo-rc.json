@@ -1,0 +1,42 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.jhipster.nigeria",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.10.3",
+    "applicationType": "microservice",
+    "baseName": "coreservice",
+    "packageName": "com.jhipster.nigeria",
+    "packageFolder": "com/jhipster/nigeria",
+    "serverPort": "8081",
+    "authenticationType": "uaa",
+    "uaaBaseName": "uaa",
+    "cacheProvider": "redis",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MjM5ZTI0NzdiMTAxNTk2YTNkNTc2N2MwOGU1ZDc5NjhkZjc0YjA3OGNhYjY1ZjdkYTJjNDUyOWIyZGE0OTJmNDcyNzAxMjAwYmEzM2ZkN2ViMTAyODAzZmFlODE2YTFkMjk2OTBhMmVjNDVkM2QzZDQ3NDA0NGFhOTczNjgwZTk=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1601126264176,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "en",
+    "languages": ["en"],
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

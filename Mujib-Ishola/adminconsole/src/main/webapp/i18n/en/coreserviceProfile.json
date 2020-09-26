@@ -1,0 +1,42 @@
+{
+  "adminconsoleApp": {
+    "coreserviceProfile": {
+      "home": {
+        "title": "Profiles",
+        "createLabel": "Create a new Profile",
+        "createOrEditLabel": "Create or edit a Profile",
+        "notFound": "No Profiles found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Profile {{ id }}?"
+      },
+      "detail": {
+        "title": "Profile"
+      },
+      "userId": "User Id",
+      "login": "Login",
+      "phone": "Phone",
+      "email": "Email",
+      "firstName": "First Name",
+      "middleName": "Middle Name",
+      "lastName": "Last Name",
+      "optActivationKey": "Opt Activation Key",
+      "activationKey": "Activation Key",
+      "alias": "Alias",
+      "emailNotifications": "Email Notifications",
+      "smsNotifications": "Sms Notifications",
+      "photo": "Photo",
+      "lang": "Lang",
+      "help": {
+        "lang": "Used for i18n on the platform"
+      }
+    }
+  },
+  "coreserviceApp": {
+    "coreserviceProfile": {
+      "created": "A new Profile is created with identifier {{ param }}",
+      "updated": "A Profile is updated with identifier {{ param }}",
+      "deleted": "A Profile is deleted with identifier {{ param }}"
+    }
+  }
+}
